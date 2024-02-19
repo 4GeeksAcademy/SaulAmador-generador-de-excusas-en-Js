@@ -1,11 +1,31 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let who = ["The dog", "My grandma", "His turtle", "My bird"];
+let action = ["ate", "peed", "crushed", "broke"];
+let what = ["my homework", "the keys", "the car"];
+let when = [
+  "before the class",
+  "right on time",
+  "when I finished",
+  "during my lunch",
+  "thanks to christ the king"
+];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function generarExcusa() {
+  const indiceWho = Math.floor(Math.random() * who.length);
+  const indiceAction = Math.floor(Math.random() * action.length);
+  const indiceWhat = Math.floor(Math.random() * what.length);
+  const indiceWhen = Math.floor(Math.random() * when.length);
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+  const excusa = `${who[indiceWho]} ${action[indiceAction]} ${what[indiceWhat]} ${when[indiceWhen]}.`;
+
+  return excusa;
+}
+
+function mostrarExcusa() {
+  const elementoExcusa = document.getElementById("excuse");
+
+  const excusa = generarExcusa();
+
+  elementoExcusa.innerHTML = excusa;
+}
+
+window.onload = mostrarExcusa;
